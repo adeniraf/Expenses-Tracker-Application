@@ -1,6 +1,6 @@
 'use client'
-import ExpenditureChart from '@/app/components/ExpenditureChart'
-import SummaryGraph from '@/app/components/SummaryGraph'
+import ExpenditureChart from '@/components/ExpenditureChart'
+import SummaryGraph from '@/components/SummaryGraph'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 
