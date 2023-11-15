@@ -1,0 +1,39 @@
+@tailwind base;
+
+@layer base {
+	html {
+		@apply text-mywhite;
+	}
+
+	h1 {
+		@apply text-2xl;
+	}
+	h2 {
+		@apply text-xl;
+	}
+	h3 {
+		@apply text-lg;
+	}
+	p {
+		@apply text-sm;
+	}
+
+	/* label {
+		@apply text-sm;
+	} */
+
+	button {
+		@apply bg-myweirdgrey text-mywhite font-semibold w-40 h-10 rounded-full flex items-center justify-center gap-2;
+	}
+
+	button.inverted-1 {
+		@apply bg-mywhite text-myblack;
+	}
+
+	/* input {
+		@apply hover:drop-shadow-glow;
+	} */
+}
+
+@tailwind components;
+@tailwind utilities;
