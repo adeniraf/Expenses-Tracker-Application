@@ -1,7 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { MdLogin, MdPieChart } from 'react-icons/md'
-import { FaChartPie } from 'react-icons/fa'
+import { FaChartPie, FaHamburger } from 'react-icons/fa'
 import { GrTransaction } from 'react-icons/gr'
 import { IoIosWallet } from 'react-icons/io'
 import Link from 'next/link'
@@ -25,30 +25,28 @@ const Sidebar = () => {
 	console.log(pathname)
 
 	return (
-		<div className='flex flex-col justify-between items-center w-44 px-8 py-8 bg-mydarkgrey rounded-2xl mr-4 h-full'>
-			{/* User Profile pic and name */}
-			<div className='text-center'>
-				Image
-				<p>Hello, User</p>
-			</div>
-
+		<div className='hidden md:flex md:flex-col h-full  justify-between items-center text-center px-4 py-8 bg-mydarkgrey rounded-2xl'>
 			{/* Nav Links */}
-			<div className='flex flex-col gap-8 text-mywhite'>
+			LOGO
+			<ul className=''>
 				{navLinks.map((item) => {
 					return (
-						<Link
-							key={item.text}
-							href={item.href}
-							className={`${
-								item.href === pathname ? 'text-mygreen' : ''
-							} flex gap-8 items-center`}>
-							{item.logo}
-							{item.text}
-						</Link>
+						<li
+							key={item.href}
+							className='mb-8'>
+							<Link
+								key={item.text}
+								href={item.href}
+								className={`${
+									item.href === pathname ? 'text-mygreen' : ''
+								} flex gap-4 items-center hover:text-mygreen`}>
+								{item.logo}
+								{item.text}
+							</Link>
+						</li>
 					)
 				})}
-			</div>
-
+			</ul>
 			{/* Logout Button */}
 			<button
 				className='flex items-center justify-center inverted-1 w-36 hover:opacity-80'
@@ -57,7 +55,7 @@ const Sidebar = () => {
 					size={20}
 					className='text-mygreen '
 				/>
-				Login
+				Sign out
 			</button>
 		</div>
 	)

@@ -1,20 +1,17 @@
-import classNames from 'classnames'
 import Sidebar from '../../components/Sidebar'
+import Topbar from '@/components/Topbar'
 
-export default function RootLayout({
+export default function DashboardLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
 	return (
-		<html lang='en'>
-			<body
-				className={
-					'flex gap-2 justify-between h-screen w-screen bg-black overflow-hidden px-4 py-4'
-				}>
-				<Sidebar />
-				<div className='flex w-full h-full'>{children}</div>
-			</body>
-		</html>
+		<section className='bg-black p-4 md:flex md:gap-4 h-screen w-full'>
+			<Topbar />
+			<Sidebar />
+
+			{children}
+		</section>
 	)
 }

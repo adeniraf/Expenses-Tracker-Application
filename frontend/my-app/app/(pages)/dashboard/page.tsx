@@ -1,30 +1,34 @@
 'use client'
 import ExpenditureChart from '@/components/ExpenditureChart'
+import RecentExpenses from '@/components/RecentTransactions'
 import SummaryGraph from '@/components/SummaryGraph'
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const Page = () => {
+	const [incomeData, setIncomeData] = useState()
+	const [expenseData, setExpenseData] = useState()
+
 	useEffect(() => {
 		const fetchData = async () => {
-			const res = await axios.get(
-				'http://localhost:5000/transactions/get-expenses'
-			)
-			console.log(res.data)
+			try {
+				const expensesdata = await fetch('/api')
+				const res = await expensesdata.json()
+				setExpenseData(res)
+			} catch (error) {
+				console.log(error)
+			}
 		}
 		fetchData()
 	}, [])
+
+	console.log(expenseData)
+
 	return (
-		<div className='bg-mydarkgrey w-full h-full px-8 py-8 rounded-2xl'>
-			<div className='h-1/2 flex flex-1 justify-between'>
-				<div className='w-full h-full flex flex-1'>
-					<SummaryGraph />
-				</div>{' '}
-				<div className='w-full h-full flex flex-1'>
-					<ExpenditureChart />
-				</div>
-			</div>
-			<div className='h-1/2 flex-1'></div>
+		<div className='hidden md:flex md:flex-wrap bg-mydarkgrey w-full h-full px-12 py-12 rounded-2xl'>
+			<SummaryGraph />
+			<ExpenditureChart />
+			<RecentExpenses />
+			<SummaryGraph />
 		</div>
 	)
 }

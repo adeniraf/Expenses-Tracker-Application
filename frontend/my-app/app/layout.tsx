@@ -20,11 +20,11 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang='en'>
+		<html lang='en' className="h-full">
 			<body
 				className={classNames(
 					roboto.className,
-					'min-h-screen w-screen bg-mydarkgrey overflow-hidden flex items-center justify-center'
+					'min-h-screen w-screen bg-mydarkgrey'
 				)}>
 				{children}
 			</body>

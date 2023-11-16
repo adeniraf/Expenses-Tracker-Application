@@ -6,10 +6,7 @@ export default function Home() {
 	const darkStyles = ''
 
 	return (
-		<div className=''>
-			{/* Login Form */}
-
 			<LoginForm />
-		</div>
+
 	)
 }
